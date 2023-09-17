@@ -1,13 +1,16 @@
 package homework42;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class mapStudent {
+public class MapStudent {
     /*
-    ** Задача 2 **
-    Дан список студентов. Каждая запись в этом списке означает, что студент посетил занятие.
-    Необходимо сформировать Map<Student, Integer>, где ключ студент, а значение - количество занятий
-    */
+   ** Задача 2 **
+   Дан список студентов. Каждая запись в этом списке означает, что студент посетил занятие.
+   Необходимо сформировать Map<Student, Integer>, где ключ студент, а значение - количество занятий
+   */
     public static void main(String[] args) {
 
         List<Student> students = new ArrayList<>();
