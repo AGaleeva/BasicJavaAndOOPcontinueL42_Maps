@@ -1,9 +1,6 @@
 package consultation;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class T3_FromConsultation {
     /*
@@ -25,14 +22,15 @@ public class T3_FromConsultation {
         mapChars.put(' ', 2);
 
         System.out.println(mapChars);
-        System.out.println(printRandomString(mapChars));
+//        System.out.println(printRandomString(mapChars));
+        System.out.println(printRandomString1(mapChars));
     }
 
     public static String printRandomString(Map<Character, Integer> map) {
         Set<CharContainer> charSet = new HashSet<>();
         StringBuilder randCharString = new StringBuilder();
         Set<Map.Entry<Character, Integer>> entrySet = map.entrySet();
-        for (Map.Entry<Character, Integer> entry: entrySet) {
+        for (Map.Entry<Character, Integer> entry : entrySet) {
             Character ch = entry.getKey();
             Integer val = entry.getValue();
             for (int i = 0; i < val; i++) {
@@ -41,6 +39,25 @@ public class T3_FromConsultation {
         }
         for (CharContainer ch : charSet) {
             randCharString.append(ch.getCharacter());
+        }
+        return randCharString.toString().toLowerCase();
+    }
+
+    public static String printRandomString1(Map<Character, Integer> map) {
+        Random random = new Random();
+        List<Character> charList = new ArrayList<>();
+        StringBuilder randCharString = new StringBuilder();
+        Set<Map.Entry<Character, Integer>> entrySet = map.entrySet();
+        for (Map.Entry<Character, Integer> entry : entrySet) {
+            Character ch = entry.getKey();
+            Integer val = entry.getValue();
+            for (int i = 0; i < val; i++) {
+                charList.add(ch);
+            }
+        }
+        while (charList.size() > 0) {
+            int index = random.nextInt(0, charList.size());
+            randCharString.append(charList.remove(index));
         }
         return randCharString.toString().toLowerCase();
     }
